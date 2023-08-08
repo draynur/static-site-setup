@@ -11,9 +11,9 @@ nginx conf in /etc/nginx/sites-available/domain.tld.conf
 server {
   listen 80 default_server;
   listen [::]:80 default_server;
-  root /var/www/jgefroh.com;
+  root /var/www/domain.tld;
   index index.html;
-  server_name jgefroh.com www.jgefroh.com;
+  server_name domain.tld www.domain.tld;
   location / {
     try_files $uri $uri/ =404;
   }
@@ -48,8 +48,8 @@ SSL config for nginx
 server {
    # ...previous content here
    ssl on;
-   ssl_certificate /etc/letsencrypt/live/jgefroh.com/fullchain.pem;
-   ssl_certificate_key /etc/letsencrypt/live/jgefroh.com/privkey.pem;
+   ssl_certificate /etc/letsencrypt/live/domain.tld/fullchain.pem;
+   ssl_certificate_key /etc/letsencrypt/live/domain.tld/privkey.pem;
 ```
 
 ```
@@ -64,7 +64,7 @@ To redirect HTTP to HTTPS, add another server block below the current one, with
 ```
 server {
     listen 0.0.0.0:80;
-    server_name jgefroh.com www.jgefroh.com;
+    server_name domain.tld www.domain.tld;
     rewrite ^ https://$host$request_uri? permanent;
 }
 ```

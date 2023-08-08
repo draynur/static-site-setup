@@ -2,8 +2,8 @@
 A quick setup for static sites.
 
 ```
-sudo apt-get update
-sudo apt-get install nginx
+sudo apt update
+sudo apt install nginx
 ```
 
 nginx conf in /etc/nginx/sites-available/domain.tld.conf
